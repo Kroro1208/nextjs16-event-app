@@ -1,9 +1,10 @@
 const Home = () => {
   console.log("SSR");
   return (
-    <main>
-      <div className="text-5xl underline">ようこそNextjs16の世界へ</div>
-    </main>
+    <section>
+      <h1 className="text-center">Event Booking Hub</h1>
+      <p className="text-center mt-5">あなたの好きなイベントが見つかる</p>
+    </section>
   );
 };
 
