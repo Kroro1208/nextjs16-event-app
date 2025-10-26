@@ -6,8 +6,8 @@ const Navbar = () => {
     <header>
       <nav>
         <Link href="/" className="logo">
-          <Image src="/logo.png" alt="Logo" width={24} height={24} />
-          <p>Dev Event</p>
+          <Image src="/event-list.png" alt="Logo" width={48} height={48} />
+          <p className="text-2xl">Event Hub</p>
         </Link>
         <ul className="list-none">
           <li>
