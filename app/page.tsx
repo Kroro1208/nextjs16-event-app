@@ -1,7 +1,7 @@
 import Hello from "./components/Hello";
 
 const Home = () => {
-  console.log("Homeコンポーネントがレンダリングされました");
+  console.log("SSR");
   return (
     <main>
       <div className="text-5xl underline">
