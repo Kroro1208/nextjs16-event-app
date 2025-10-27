@@ -1,16 +1,6 @@
+import { events } from "@/lib/mockData";
 import EventCard from "../components/EventCard";
 import ExploreButton from "../components/ExploreButton";
-
-const events = [
-  {
-    image: "/apple-event.png",
-    title: "イベント1",
-  },
-  {
-    image: "/teck-event.png",
-    title: "イベント2",
-  },
-];
 
 const Home = () => {
   return (
@@ -23,7 +13,7 @@ const Home = () => {
       <ExploreButton />
       <div className="mt-20 space-y-7">
         <h3>Feature Events</h3>
-        <ul>
+        <ul className="events">
           {events.map((event) => (
             <li key={event.title} className="list-none">
               <EventCard {...event} />
