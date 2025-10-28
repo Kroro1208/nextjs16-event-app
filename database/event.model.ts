@@ -1,7 +1,8 @@
 import { Document, Schema, model, models } from "mongoose";
+import { IEvent } from ".";
 
 // TypeScript interface for Event document
-export interface IEvent extends Document {
+export interface Event extends Document {
   title: string;
   slug: string;
   description: string;
@@ -20,7 +21,7 @@ export interface IEvent extends Document {
   updatedAt: Date;
 }
 
-const EventSchema = new Schema<IEvent>(
+const EventSchema = new Schema<Event>(
   {
     title: {
       type: String,
