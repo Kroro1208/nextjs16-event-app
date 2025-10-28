@@ -11,10 +11,6 @@ export async function POST(req: NextRequest) {
     let event;
 
     try {
-      // デバッグ: FormDataの中身を確認
-      console.log("FormData keys:", Array.from(formData.keys()));
-      console.log("FormData entries:", Array.from(formData.entries()));
-
       // formDataからすべてのエントリー（キーと値のペア）を取得
       event = Object.fromEntries(formData.entries());
       console.log("Parsed event:", event);
