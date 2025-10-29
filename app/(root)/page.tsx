@@ -1,8 +1,12 @@
-import { events } from "@/lib/mockData";
+import { Event } from "@/database/event.model";
 import EventCard from "../components/EventCard";
 import ExploreButton from "../components/ExploreButton";
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
-const Home = () => {
+const Home = async () => {
+  const response = await fetch(`${BASE_URL}/api/events`);
+  const { events } = await response.json();
+
   return (
     <section>
       <h1 className="text-center">
@@ -14,11 +18,13 @@ const Home = () => {
       <div className="mt-20 space-y-7">
         <h3>Feature Events</h3>
         <ul className="events">
-          {events.map((event) => (
-            <li key={event.title} className="list-none">
-              <EventCard {...event} />
-            </li>
-          ))}
+          {events &&
+            events.length > 0 &&
+            events.map((event: Event) => (
+              <li key={event.title} className="list-none">
+                <EventCard {...event} />
+              </li>
+            ))}
         </ul>
       </div>
     </section>
