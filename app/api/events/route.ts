@@ -14,7 +14,6 @@ export async function POST(req: NextRequest) {
     try {
       // formDataからすべてのエントリー（キーと値のペア）を取得
       event = Object.fromEntries(formData.entries());
-      console.log("Parsed event:", event);
     } catch (error) {
       console.error("Error parsing form data:", error);
       return NextResponse.json(
@@ -65,6 +64,22 @@ export async function POST(req: NextRequest) {
         error:
           error instanceof Error ? error.message : "不明なエラーが発生しました",
       },
+      { status: 500 }
+    );
+  }
+}
+
+export async function GET() {
+  try {
+    await connectDB();
+    const events = await Event.find().sort({ createdAt: -1 });
+    return NextResponse.json(
+      { message: "イベント一覧の取得に成功しました", events },
+      { status: 200 }
+    );
+  } catch (error) {
+    return NextResponse.json(
+      { message: "イベント一覧の取得に失敗しました", error: error },
       { status: 500 }
     );
   }
